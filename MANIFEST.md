@@ -2,6 +2,8 @@
 
 > 用途：日后要删除时，照这张表逐项核对，确保一处不留。
 > 生成时间：2026-09-10
+>
+> 本机绝对路径已用 `<项目目录>`、`<桌面>`、`%APPDATA%` 等占位符代替。
 
 ---
 
@@ -22,7 +24,7 @@ python uninstall.py --keep-src # 只清运行痕迹，保留源码文件夹
 ## 2. 本项目文件夹（构建期产生）
 
 ```
-C:\Users\21210\YIT-DirectConnect\      <-- 整个删掉即可
+<项目目录>\      <-- 整个删掉即可
 ├── MANIFEST.md            本清单
 ├── build.py               打包脚本
 ├── uninstall.py           卸载脚本（会把自己也删掉）
@@ -41,7 +43,7 @@ C:\Users\21210\YIT-DirectConnect\      <-- 整个删掉即可
 
 | 路径 | 说明 |
 |---|---|
-| `C:\Users\21210\Desktop\校园网直连.exe` | 复制过去的成品，11.2 MB |
+| `<桌面>\校园网直连.exe` | 复制过去的成品，11.2 MB |
 
 > 没有创建任何快捷方式（.lnk），就是 exe 本身。
 
@@ -49,13 +51,13 @@ C:\Users\21210\YIT-DirectConnect\      <-- 整个删掉即可
 
 | 路径 | 说明 | 何时产生 |
 |---|---|---|
-| `C:\Users\21210\AppData\Roaming\YITDirectConnect\config.dat` | **加密保存的校园网账号密码**（DPAPI，绑定当前 Windows 账户） | 首次成功连接后 |
-| `C:\Users\21210\AppData\Roaming\YITDirectConnect\run.log` | 运行日志（每次启动覆盖，**不含密码**，仅用于排查问题） | 每次运行 |
-| `C:\Users\21210\AppData\Local\Temp\_MEI*\` | PyInstaller 单文件每次启动的解压目录 | 每次运行，**退出时自动删除**，异常退出可能残留 |
+| `%APPDATA%\YITDirectConnect\config.dat` | **加密保存的校园网账号密码**（DPAPI，绑定当前 Windows 账户） | 首次成功连接后 |
+| `%APPDATA%\YITDirectConnect\run.log` | 运行日志（每次启动覆盖，**不含密码**，仅用于排查问题） | 每次运行 |
+| `%TEMP%\_MEI*\` | PyInstaller 单文件每次启动的解压目录 | 每次运行，**退出时自动删除**，异常退出可能残留 |
 
 ## 5. 对 Python 环境的改动
 
-`pip install pyinstaller` 往 `E:\python\Lib\site-packages\` 装了这些包：
+`pip install pyinstaller` 往 `<Python 安装目录>\Lib\site-packages\` 装了这些包：
 
 | 包 | 版本 | 备注 |
 |---|---|---|
@@ -223,11 +225,11 @@ python -m pip uninstall -y pyinstaller pyinstaller-hooks-contrib altgraph pefile
 
 ```bash
 # 1. 项目文件夹
-ls -d "C:/Users/21210/YIT-DirectConnect"          # 应报 No such file
+ls -d "<项目目录>"                      # 应报 No such file
 
 # 2. 桌面 exe
-ls "C:/Users/21210/Desktop/校园网直连.exe"          # 应报 No such file
+ls "<桌面>/校园网直连.exe"               # 应报 No such file
 
 # 3. 加密配置
-ls "C:/Users/21210/AppData/Roaming/YITDirectConnect"  # 应报 No such file
+ls "$APPDATA/YITDirectConnect"          # 应报 No such file
 ```
