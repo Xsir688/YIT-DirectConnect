@@ -4,6 +4,12 @@
 
 > 个人自用工具，与学校官方无关。门户改版就可能失效。
 
+## 下载
+
+**[⬇ 点这里下载 YIT-DirectConnect.exe](https://github.com/Xsir688/YIT-DirectConnect/releases/latest/download/YIT-DirectConnect.exe)** —— 约 12 MB，双击即用，**不需要装 Python**。
+
+> 第一次打开 Windows 会拦一下（所有没有数字签名的程序都这样）：点 **「更多信息」** → **「仍要运行」**。
+
 ## 怎么用
 
 1. 双击运行（跑源码：`python src/yit_connect.py`，需 Python 3.8+）
@@ -12,7 +18,7 @@
 
 已经联网时打开，会显示「当前已经联网 ✓」，只给「切换账号」和「关闭后台」两个按钮。
 
-**打包成单文件 exe**：`python build.py`（约 11 MB，会顺手复制到桌面；仓库里不放二进制）
+**打包成单文件 exe**：`python build.py`（约 12 MB，会顺手复制到桌面；仓库里不放二进制）
 
 ## 特点
 
